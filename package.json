@@ -48,6 +48,7 @@
     "nodemon": "^3.0.1"
   },
   "dependencies": {
+    "@tensorflow/tfjs-node": "^4.13.0",
     "app-root-path": "^3.1.0",
     "lodash": "^4.17.21",
     "shuffle-seed": "^1.1.6"
