@@ -12,7 +12,7 @@ EstateForecast is an application that predicts house prices using NodeJS and Ten
 
 1. Clone this repository.
 2. Install dependencies using `npm install`.
-3. Run the application with `npm run start:dev`.
+3. Run the application with `npm run start`.
 
 ## Contributing 🤝
 
@@ -23,8 +23,11 @@ Contributions are welcome! Please open an issue or create a pull request for any
 This project is licensed under the [GPL-3.0 License](LICENSE).
 
 ## Acknowledgements 🙏
-- Special thanks to the amazing communities of Node.js & TensorFlow JS.
-___
-Feel free to reach out at [sshashank790@gmail.com](mailto:sshashank790@gmail.com) for any queries. 
-___
 
+- Special thanks to the amazing communities of Node.js & TensorFlow JS.
+
+---
+
+Feel free to reach out at [sshashank790@gmail.com](mailto:sshashank790@gmail.com) for any queries.
+
+---
