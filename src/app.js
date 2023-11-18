@@ -49,8 +49,22 @@ const knn = (features, labels, predictionPoint, k) => {
   return prediction;
 };
 
-// Make a prediction using KNN for the first test feature with k=10
-const prediction = knn(tensorFeatures, tensorLabels, tensor(testFeatures[0]), 10);
+// Iterate through each test feature and make predictions using KNN
+testFeatures.forEach((testPoint, i) => {
+  const prediction = knn(tensorFeatures, tensorLabels, tensor(testPoint), 10);
 
-// Display the prediction and actual price
-console.log(`Prediction: $${prediction}\tActual Price: $${testLabels[0][0]}`);
+  // Calculate the error percentage
+  const error = ((testLabels[i][0] - prediction) / testLabels[i][0]) * 100;
+
+  // Display predictions and error percentage
+  if (i === 0) {
+    console.log('\n\n+--------- Predictions -----------+\n');
+  }
+  console.log(`  [+] Predicted Price: $${prediction}`);
+  console.log(`      Actual Price: $${testLabels[i][0]}`);
+  console.log(`      Error: ${error.toFixed(2)}%\n`);
+
+  if (i === testFeatures.length - 1) {
+    console.log('+---------------------------------+\n\n');
+  }
+});
