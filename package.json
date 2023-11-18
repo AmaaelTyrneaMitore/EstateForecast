@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "EstateForecast utilizes NodeJS & Tensorflow.js to predict house prices. Using a KNN regression algorithm, this app provides accurate estimations for property values, aiding in real estate decisions.",
   "main": "src/app.js",
+  "type": "module",
   "scripts": {
-    "build": "./node_modules/typescript/bin/tsc",
-    "start": "./node_modules/nodemon/bin/nodemon.js -e ts --exec \"npm run build && node ./src/app.js\""
+    "start": "./node_modules/nodemon/bin/nodemon.js ./src/app.js"
   },
   "repository": {
     "type": "git",
@@ -46,5 +46,10 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.1",
     "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "app-root-path": "^3.1.0",
+    "lodash": "^4.17.21",
+    "shuffle-seed": "^1.1.6"
   }
 }
