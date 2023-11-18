@@ -1,7 +1,6 @@
 import { join } from 'path';
 import appRootPath from 'app-root-path';
-import { tensor } from '@tensorflow/tfjs-node';
-
+import { moments, tensor } from '@tensorflow/tfjs-node';
 import loadCSV from './utils/csv-loader.js';
 
 // Load the CSV file path
@@ -9,7 +8,7 @@ const csvFilePath = join(appRootPath.path, 'data', 'kc_house_data.csv');
 
 // Define options for loading CSV data
 const loadOptions = {
-  dataColumns: ['lat', 'long'], // Columns representing features
+  dataColumns: ['lat', 'long', 'sqft_lot'], // Columns representing features
   labelColumns: ['price'], // Column representing the label
   shuffle: true, // Shuffle the data
   splitTest: 10, // Number of rows for testing
@@ -32,11 +31,18 @@ const tensorLabels = tensor(labels);
  * @returns {number} - Predicted value.
  */
 const knn = (features, labels, predictionPoint, k) => {
-  // Calculate distances between the prediction point and features
-  const distances = features.sub(predictionPoint).pow(2).sum(1).pow(0.5);
+  // Compute mean and variance of the features
+  const { mean, variance } = moments(features, 0);
+
+  // Standardize the prediction point using mean and variance
+  const scaledPredictionPoint = predictionPoint.sub(mean).div(variance.pow(0.5));
+
+  // Standardize features and the prediction point
+  const scaledFeatures = features.sub(mean).div(variance.pow(0.5));
+  const scaledDistances = scaledFeatures.sub(scaledPredictionPoint).pow(2).sum(1).pow(0.5);
 
   // Combine distances with labels, sort by distance, and take the top 'k' neighbors
-  const topK = distances
+  const topK = scaledDistances
     .expandDims(1)
     .concat(labels, 1)
     .unstack()
