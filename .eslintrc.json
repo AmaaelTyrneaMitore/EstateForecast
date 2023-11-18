@@ -1,0 +1,8 @@
+{
+  "rules": {
+    "no-unused-labels": "warn",
+    "no-const-assign": "off",
+    "func-names": "off",
+    "prettier/prettier": "warn"
+  }
+}

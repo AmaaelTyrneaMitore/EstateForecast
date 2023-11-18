@@ -1,0 +1,50 @@
+{
+  "name": "estateforecast",
+  "version": "1.0.0",
+  "description": "EstateForecast utilizes NodeJS & Tensorflow.js to predict house prices. Using a KNN regression algorithm, this app provides accurate estimations for property values, aiding in real estate decisions.",
+  "main": "src/app.js",
+  "scripts": {
+    "build": "./node_modules/typescript/bin/tsc",
+    "start": "./node_modules/nodemon/bin/nodemon.js -e ts --exec \"npm run build && node ./src/app.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AmaaelTyrneaMitore/EstateForecast.git"
+  },
+  "keywords": [
+    "house-price-prediction",
+    "machine-learning",
+    "nodejs",
+    "tensorflow-js",
+    "knn-algorithm",
+    "regression",
+    "real-estate-property",
+    "data-analysis",
+    "predictive-analytics",
+    "housing-market",
+    "property-valuation",
+    "artificial-intelligence",
+    "supervised-learning",
+    "csv-data",
+    "data-prediction",
+    "web-development",
+    "javascript",
+    "knn",
+    "ml",
+    "ai",
+    "tf",
+    "tensorflow"
+  ],
+  "author": "Shashank Singh",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/AmaaelTyrneaMitore/EstateForecast/issues"
+  },
+  "homepage": "https://github.com/AmaaelTyrneaMitore/EstateForecast#readme",
+  "devDependencies": {
+    "eslint": "^8.54.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "nodemon": "^3.0.1"
+  }
+}
